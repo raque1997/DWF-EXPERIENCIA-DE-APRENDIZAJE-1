@@ -1,4 +1,4 @@
-package sv.edu.udb.www.lastone;
+package sv.edu.udb.www.lastone.Controlador;
 
 import java.io.*;
 

@@ -1,4 +1,4 @@
-package sv.edu.udb.www.lastone.conexion;
+package sv.edu.udb.www.lastone.Controlador;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

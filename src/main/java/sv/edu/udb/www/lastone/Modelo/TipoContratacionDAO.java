@@ -1,8 +1,6 @@
-package sv.edu.udb.www.lastone.conexion;
+package sv.edu.udb.www.lastone.Modelo;
 
-
-import sv.edu.udb.www.recursoshumanos.Model.TipoContratacion;
-import sv.edu.udb.www.recursoshumanos.Model.Contratacion;
+import sv.edu.udb.www.lastone.conexion.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +10,7 @@ public class TipoContratacionDAO {
 
     public TipoContratacion getTipoContratacionById(int id) throws SQLException {
         String query = "SELECT * FROM TipoContratacion WHERE idTipoContratacion = ?";
-        try (Connection con = DatabaseConnection.getConnection();
+        try (Connection con = new DatabaseConnection().getConnection();
              PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
@@ -30,7 +28,7 @@ public class TipoContratacionDAO {
     public boolean saveContratacion(Contratacion contratacion) {
         String sql = "INSERT INTO contrataciones (idDepartamento, idEmpleado, idCargo, idTipoContratacion, fechaContratacion, salario, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = new DatabaseConnection().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             preparedStatement.setInt(1, contratacion.getIdDepartamento());

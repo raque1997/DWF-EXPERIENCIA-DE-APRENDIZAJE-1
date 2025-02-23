@@ -1,4 +1,4 @@
-package sv.edu.udb.www.lastone.conexion;
+package sv.edu.udb.www.lastone.Modelo;
 
 import java.util.Date;
 

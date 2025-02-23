@@ -1,5 +1,7 @@
-package sv.edu.udb.www.lastone.conexion;
+package sv.edu.udb.www.lastone.Controlador;
 
+
+import sv.edu.udb.www.lastone.conexion.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

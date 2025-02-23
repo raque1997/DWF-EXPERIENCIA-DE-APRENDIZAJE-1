@@ -1,17 +1,17 @@
-package sv.edu.udb.www.lastone.conexion;
+package sv.edu.udb.www.lastone.Controlador;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import sv.edu.udb.www.recursoshumanos.Model.Contratacion;
-import sv.edu.udb.www.recursoshumanos.Dao.TipoContratacionDAO;
+import sv.edu.udb.www.lastone.Modelo.Contratacion;
+import sv.edu.udb.www.lastone.Modelo.TipoContratacionDAO;
 
 @WebServlet("/contrataciones")
 public class ContratacionesServlet extends HttpServlet {
@@ -20,14 +20,9 @@ public class ContratacionesServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Lógica para obtener la lista de contrataciones
         List<Contratacion> listaContrataciones = obtenerContrataciones();
-
-        // Establecer la lista en el atributo de la solicitud
         request.setAttribute("listaContrataciones", listaContrataciones);
-
-        // Redirigir a la página JSP
-        request.getRequestDispatcher("/WEB-INF/jsp/contrataciones.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/Contrataciones.jsp").forward(request, response);
     }
 
     @Override
@@ -65,9 +60,7 @@ public class ContratacionesServlet extends HttpServlet {
         }
     }
 
-    // Método simulado para obtener la lista de contrataciones
     private List<Contratacion> obtenerContrataciones() {
-        // Aquí puedes implementar la lógica para obtener los datos de la base de datos
-        return List.of();  // Ejemplo: retorna una lista vacía
+        return List.of();
     }
 }
